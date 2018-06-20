@@ -137,8 +137,3 @@ class Hypnus():
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
         plt.savefig(filename)
-            
-
-hp = Hypnus()
-pdt = hp.getTestDf()
-pdt = hp.setClusterColor(pdt , 'NUM')
