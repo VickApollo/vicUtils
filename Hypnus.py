@@ -60,7 +60,7 @@ class Hypnus():
                 ...   3    3      C    2  #F5F5F5
         '''
         
-        size = dataframe[cluster].values.max()
+        size = dataframe[cluster].drop_duplicates().values.size
         toss = dict()
         colorList = self.getColorDict()
         #colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
