@@ -1,3 +1,5 @@
+import pandas as pd
+import random
 import matplotlib.pyplot as plt
 import numpy as np
 import graphviz
@@ -19,13 +21,12 @@ class Hypnus():
         pass
     
     def getTestDf(self):
-        import pandas as pd
         pdt = pd.DataFrame([['D',1],['A',1],['B',2],['C',3]])
         pdt.columns = [ 'CLASSE' , 'NUM' ]
         return pdt
         
-    
-    def getColorDict(self):
+    @staticmethod
+    def getColorDict():
         '''            
             Method to recover a dict of colors from matplotlib
             
@@ -36,7 +37,6 @@ class Hypnus():
         return colors
     
     def setClusterColor(self , dataframe , cluster):
-        import random
         
         '''
             Method to set Cluster color for data visualization
@@ -62,7 +62,7 @@ class Hypnus():
         
         size = dataframe[cluster].drop_duplicates().values.size
         toss = dict()
-        colorList = self.getColorDict()
+        colorList = Hypnus.getColorDict()
         #colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
         for i in range(0,size):
             color, code = random.choice(list(colorList.items()))
